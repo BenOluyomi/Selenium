@@ -53,8 +53,7 @@ public class AddUser {
         driver.findElement(By.name("password")).sendKeys("test");							
         log.click();					
         System.out.println("Login Done with Submit");					
-        List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + "**Succesful Login**"+ "')]"));
-        Assert.assertTrue("Text not found!", list.size() > 0);
+        driver.getPageSource().contains("**Successful Login**");
 		
 	}
       //driver.close();	 
