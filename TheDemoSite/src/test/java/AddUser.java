@@ -1,7 +1,10 @@
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import junit.framework.Assert;
 
 public class AddUser {
 	public static void main(String[] args) {									
@@ -14,14 +17,14 @@ public class AddUser {
         driver.get(baseUrl);					
 
         // Get the WebElement corresponding to the Email Address(TextField)		
-        WebElement username = driver.findElement(By.id("username"));							
+        WebElement username = driver.findElement(By.name("username"));							
 
         // Get the WebElement corresponding to the Password Field		
         WebElement password = driver.findElement(By.name("password"));							
 
-        username.sendKeys("david1010");					
-        password.sendKeys("abcdefghlkjl");					
-        System.out.println("Text Field Set");					
+        //username.sendKeys("david1010");					
+        //password.sendKeys("abcdefghlkjl");					
+       //System.out.println("Text Field Set");					
          
         // Deleting values in the text box		
         username.clear();			
@@ -29,22 +32,36 @@ public class AddUser {
         System.out.println("Text Field Cleared");					
 
         // Find the submit button		
-        WebElement login = driver.findElement(By.id("SubmitLogin"));							
+        WebElement save = driver.findElement(By.name("FormsButton2"));							
                     		
         // Using click method to submit form		
         username.sendKeys("david1010");					
-        password.sendKeys("abcdefghlkjl");					
-        login.click();			
-        System.out.println("Login Done with Click");					
-        		
+        password.sendKeys("abcdefgh");					
+        save.click();			
+        System.out.println("Login Done with Click");	
+        
+        WebElement login1 = driver.findElement(By.xpath("//a[@href='login.php']"));
+        login1.click();			
+        
+        
         //using submit method to submit the form. Submit used on password field		
-        driver.get(baseUrl);					
-        driver.findElement(By.id("username")).sendKeys("david1010");							
+        WebElement log = driver.findElement(By.name("FormsButton2"));					
+        driver.findElement(By.name("username")).sendKeys("david1010");							
         driver.findElement(By.name("password")).sendKeys("abcdefghlkjl");							
-        driver.findElement(By.id("save")).submit();					
+        log.click();					
         System.out.println("Login Done with Submit");					
          
-		driver.close();		
-        		
-    }		
+		//driver.close();	
+       
+       
+	      
+      
+	        
+         
+         
+        
+         
+
+		
+	}
 }
