@@ -1,3 +1,5 @@
+import java.util.List;
+
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +9,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import junit.framework.Assert;
 
 public class AddUser {
-	public static void main(String[] args) {									
+	@Test
+	public void test() {									
 		
     	// declaration and instantiation of objects/variables		
         System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver.exe");					
@@ -47,12 +50,13 @@ public class AddUser {
         //using submit method to submit the form. Submit used on password field		
         WebElement log = driver.findElement(By.name("FormsButton2"));					
         driver.findElement(By.name("username")).sendKeys("david1010");							
-        driver.findElement(By.name("password")).sendKeys("abcdefghlkjl");							
+        driver.findElement(By.name("password")).sendKeys("test");							
         log.click();					
         System.out.println("Login Done with Submit");					
-	
-		//driver.close();	
+        List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + "**Succesful Login**"+ "')]"));
+        Assert.assertTrue("Text not found!", list.size() > 0);
+		
 	}
-       
+      //driver.close();	 
 	      
 } 
