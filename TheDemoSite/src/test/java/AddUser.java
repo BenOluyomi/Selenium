@@ -50,18 +50,9 @@ public class AddUser {
         driver.findElement(By.name("password")).sendKeys("abcdefghlkjl");							
         log.click();					
         System.out.println("Login Done with Submit");					
-         
+	
 		//driver.close();	
-       
+	}
        
 	      
-      
-	        
-         
-         
-        
-         
-
-		
-	}
-}
+} 
