@@ -36,7 +36,7 @@ public class AddUser {
                     		
         // Using click method to submit form		
         username.sendKeys("david1010");					
-        password.sendKeys("abcdefgh");					
+        password.sendKeys("test");					
         save.click();			
         System.out.println("Login Done with Click");	
         
